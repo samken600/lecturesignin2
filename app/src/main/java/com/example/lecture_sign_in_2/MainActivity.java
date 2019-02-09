@@ -12,6 +12,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
@@ -21,12 +22,19 @@ public class MainActivity extends AppCompatActivity {
     private Button btnAdd;
     private Button btnViewData;
     private EditText editText;
+    private Spinner spiDur;
+    private Spinner spiDate;
+    private Spinner spiTime;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
         editText = (EditText) findViewById(R.id.editText);
+        spiDate = (Spinner) findViewById(R.id.spiDate);
+        spiDur = (Spinner) findViewById(R.id.spiDur);
+        spiTime = (Spinner) findViewById(R.id.spiTime);
         btnAdd = (Button) findViewById(R.id.btnAdd);
         btnViewData = (Button) findViewById(R.id.btnView);
         mDatabaseHelper = new DatabaseHelper(this);
@@ -44,16 +52,23 @@ public class MainActivity extends AppCompatActivity {
 
         Button button = (Button) findViewById(R.id.button);
 
+        //taking in values
         btnAdd.setOnClickListener(new OnClickListener(){
             @Override
             public void onClick(View v){
-                String newEntry = editText.getText().toString();
+                String newEntry1 = editText.getText().toString();
+                String newEntry2 = spiTime.getSelectedItem().toString();
+                String newEntry3 = spiDate.getSelectedItem().toString();
+                String newEntry4 = spiDur.getSelectedItem().toString();
+
                 if (editText.length() !=0){
-                    AddData(newEntry);
+                    AddData(newEntry1, newEntry2, newEntry3, newEntry4);
                     editText.setText("");
                 } else {
                     toastMessage("You must put something in the text field!");
                 }
+
+
             }
         });
 
@@ -80,8 +95,8 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    public void AddData(String newEntry){
-        boolean insertData = mDatabaseHelper.addData(newEntry);
+    public void AddData(String newEntry1, String newEntry2, String newEntry3, String newEntry4){
+        boolean insertData = mDatabaseHelper.addData(newEntry1, newEntry2, newEntry3, newEntry4);
 
         if(insertData){
             toastMessage("Data Successfully Inserted!");

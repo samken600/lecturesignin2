@@ -35,10 +35,14 @@ public class ListDataActivity extends AppCompatActivity {
         Log.d(TAG, "populateListView: Displaying data in the ListView.");
         Cursor data = mDatabaseHelper.getData();
         ArrayList<String> listData = new ArrayList<>();
+
         while (data.moveToNext()) {
 
-            listData.add(data.getString(1));
+           listData.add(data.getString(1) + data.getString(2) + data.getString(3) + data.getString(4));
+
+
         }
+
 
         ListAdapter adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, listData);
         mListView.setAdapter(adapter);

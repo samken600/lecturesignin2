@@ -4,7 +4,39 @@
     <string name="title_activity_page2">page2</string>
     <string name="hello_i_am_not_jacob">Hello I am not Jacob!</string>
     <string name="button">Next</string>
-    <string name="insert_data">Insert data</string>
+    <string name="insert_data">Lecture name</string>
     <string name="add">Add</string>
     <string name="view_data">View data</string>
+    <string name="hint"></string>
+
+    <string name="spiDur_prompt">What is the duration of the lecture/lab?</string>
+    <string name="spiDate_prompt">What day is the lecture/lab on?</string>
+    <string name="spiTime_prompt">What time is the lecture/lab at?</string>
+
+    <string-array name="spiDur_arrays">
+        <item>1 hour</item>
+        <item>2 hour</item>
+        <item>3 hour</item>
+    </string-array>
+
+    <string-array name="spiDate_arrays">
+        <item>Monday</item>
+        <item>Tuesday</item>
+        <item>Wednesday</item>
+        <item>Thursday</item>
+        <item>Friday</item>
+    </string-array>
+
+    <string-array name="spiTime_arrays">
+        <item>9am</item>
+        <item>10am</item>
+        <item>11am</item>
+        <item>12pm</item>
+        <item>1pm</item>
+        <item>2pm</item>
+        <item>3pm</item>
+        <item>4pm</item>
+        <item>5pm</item>
+        <item>6pm</item>
+    </string-array>
 </resources>
